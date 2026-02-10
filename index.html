@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Valentine</title>
 
 <style>
@@ -38,8 +37,8 @@ button {
 }
 
 img {
-    width: 120px;
-    margin: 10px;
+    width: 140px;
+    margin: 15px;
 }
 
 .heart {
@@ -70,13 +69,13 @@ let yesBtn = document.getElementById("yesBtn");
 let noBtn = document.getElementById("noBtn");
 let size = 40;
 
-// Bouton Non fuit
+// bouton Non fuit
 noBtn.addEventListener("mouseover", () => {
     noBtn.style.left = Math.random() * 80 + "vw";
     noBtn.style.top = Math.random() * 80 + "vh";
 });
 
-// Bouton Oui grossit
+// bouton Oui grossit
 yesBtn.addEventListener("click", () => {
     size += 20;
     yesBtn.style.fontSize = size + "px";
@@ -84,7 +83,7 @@ yesBtn.addEventListener("click", () => {
     if (size > 140) showLovePage();
 });
 
-// Coeurs qui tombent
+// coeurs
 function spawnHeart() {
     let heart = document.createElement("div");
     heart.className = "heart";
@@ -92,21 +91,20 @@ function spawnHeart() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 4000);
 }
 setInterval(spawnHeart, 200);
 
-// Deuxième page
+// deuxième page
 function showLovePage() {
     document.body.innerHTML = `
         <h1>YAHYAYZYYAZE MERCI BEAUCOUP</h1>
 
-        <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Miffy.svg">
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/Pusheen_the_Cat.png">
+        <img src="https://i.imgur.com/0y8Ftya.png" alt="Miffy">
+        <img src="https://i.imgur.com/4AiXzf8.png" alt="Pusheen">
 
         <iframe style="margin-top:20px;border-radius:12px"
-            src="https://open.spotify.com/embed/track/4S4QJfBGGrC8jRIjJHf1Ka"
+            src="https://open.spotify.com/embed/track/1FO3Bhu8tZ9Kf1D5C8kH1p"
             width="90%" height="152"
             frameborder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen">
