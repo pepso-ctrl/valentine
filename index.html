@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Valentine</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #ffe6f0;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 60px;
+    font-size: 32px;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+}
+
+#yesBtn {
+    font-size: 40px;
+    padding: 15px 30px;
+    margin: 20px;
+}
+
+#noBtn {
+    font-size: 10px;
+    padding: 10px 15px;
+    position: absolute;
+}
+
+img {
+    width: 120px;
+    margin: 10px;
+}
+
+.heart {
+    position: fixed;
+    top: -10px;
+    color: red;
+    font-size: 24px;
+    animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Do you want to be my Valentine</h1>
+
+<button id="yesBtn">Oui</button>
+<button id="noBtn">Non</button>
+
+<script>
+let yesBtn = document.getElementById("yesBtn");
+let noBtn = document.getElementById("noBtn");
+let size = 40;
+
+// Bouton Non fuit
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.left = Math.random() * 80 + "vw";
+    noBtn.style.top = Math.random() * 80 + "vh";
+});
+
+// Bouton Oui grossit
+yesBtn.addEventListener("click", () => {
+    size += 20;
+    yesBtn.style.fontSize = size + "px";
+
+    if (size > 140) showLovePage();
+});
+
+// Coeurs qui tombent
+function spawnHeart() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+}
+setInterval(spawnHeart, 200);
+
+// Deuxième page
+function showLovePage() {
+    document.body.innerHTML = `
+        <h1>YAHYAYZYYAZE MERCI BEAUCOUP</h1>
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Miffy.svg">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/Pusheen_the_Cat.png">
+
+        <iframe style="margin-top:20px;border-radius:12px"
+            src="https://open.spotify.com/embed/track/4S4QJfBGGrC8jRIjJHf1Ka"
+            width="90%" height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen">
+        </iframe>
+    `;
+
+    setInterval(spawnHeart, 200);
+}
+</script>
+
+</body>
+</html>
